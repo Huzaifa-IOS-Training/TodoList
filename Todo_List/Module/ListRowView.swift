@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ListRowView: View {
 
-    let item: ItemModel
-    let isExpanded: Bool
-    let onToggleCompletion: () -> Void
+    let item: ItemModel // show task
+    let isExpanded: Bool // check expand
+    let onToggleCompletion: () -> Void //Closure toggle the Completion
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -36,6 +36,7 @@ struct ListRowView: View {
                     .cornerRadius(6)
             }
 
+            // Exapnd View
             if isExpanded {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Description: \(item.description)")
@@ -54,6 +55,7 @@ struct ListRowView: View {
         .animation(.easeInOut, value: isExpanded)
     }
 
+    // Change the color according to Priority
     func priorityColor() -> Color {
         switch item.priority {
         case "High":
