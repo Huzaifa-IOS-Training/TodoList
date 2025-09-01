@@ -7,6 +7,7 @@
 
 import Foundation
 
+// use identifiable to identify according to id and Codable for encode/decode
 struct ItemModel: Identifiable, Codable {
     var id: String
     var title: String
@@ -31,6 +32,7 @@ struct ItemModel: Identifiable, Codable {
         self.isCompleted = isCompleted
     }
 
+    //update the ItemModel, return new ItemModel because struct is value type 
     func updateCompletion() -> ItemModel {
         return ItemModel(
             id: id,
